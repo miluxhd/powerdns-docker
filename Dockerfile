@@ -12,8 +12,7 @@ RUN git clone https://github.com/poweradmin/poweradmin.git /var/www/html/pdns
 
 COPY dump.pdns.sql /dump.pdns.sql
 RUN /etc/init.d/mysql restart && mysql < /dump.pdns.sql
-#COPY run.sh /run.sh
-#RUN chmod +x /run.sh
+
 RUN rm /etc/powerdns/pdns.d/*
 COPY pdns.local.gmysql.conf /etc/powerdns/pdns.d/pdns.local.gmysql.conf
 COPY config.inc.php /var/www/html/pdns/inc/config.inc.php 
